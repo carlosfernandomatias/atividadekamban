@@ -3,76 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban - Gerenciamento de Tarefas</title>
+    <title>Login - Kanban</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Cabeçalho com perfil do usuário -->
-    <header class="header">
-        <div class="profile">
-            <label for="nickname">Nickname:</label>
-            <input type="text" id="nickname" placeholder="Digite seu nick">
-            <input type="file" id="profile-pic" accept="image/*">
-            <img id="preview" alt="Foto de Perfil" class="hidden">
-        </div>
-        <button id="download-pdf">Baixar como PDF</button>
+    <div class="auth-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required>
 
-    </header>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required>
 
-    <!-- Área do Kanban -->
-    <main class="kanban-board">
-        <!-- Coluna "A Fazer" -->
-        <section class="kanban-column" id="to-do">
-            <h2>A Fazer</h2>
-            <button class="add-task" data-column="to-do">+ Adicionar Tarefa</button>
-            <div class="task-container"></div>
-        </section>
-
-        <!-- Coluna "Fazendo" -->
-        <section class="kanban-column" id="in-progress">
-            <h2>Fazendo</h2>
-            <button class="add-task" data-column="in-progress">+ Adicionar Tarefa</button>
-            <div class="task-container"></div>
-        </section>
-
-        <!-- Coluna "Feito" -->
-        <section class="kanban-column" id="done">
-            <h2>Feito</h2>
-            <button class="add-task" data-column="done">+ Adicionar Tarefa</button>
-            <div class="task-container"></div>
-        </section>
-    </main>
-
-    <!-- Modal para criar/editar tarefas -->
-    <div id="task-modal" class="modal hidden">
-        <form id="task-form">
-            <h3 id="modal-title">Nova Tarefa</h3>
-            <label for="task-name">Nome da Tarefa:</label>
-            <input type="text" id="task-name" required>
-            
-            <label for="task-color">Cor do Cartão:</label>
-            <input type="color" id="task-color">
-
-            <label for="task-priority">Prioridade:</label>
-            <select id="task-priority">
-                <option value="Baixa">Baixa</option>
-                <option value="Média">Média</option>
-                <option value="Alta">Alta</option>
-            </select>
-
-            <label for="start-date">Data de Início:</label>
-            <input type="datetime-local" id="start-date">
-
-            <label for="end-date">Data de Término:</label>
-            <input type="datetime-local" id="end-date">
-
-            <button type="submit">Salvar</button>
-            <button type="button" id="cancel-modal">Cancelar</button>
+            <button type="submit">Entrar</button>
         </form>
+        <p>Não tem uma conta? <a href="register.html">Cadastre-se aqui</a></p>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
+    <script src="auth.js"></script>
 </body>
 </html>
