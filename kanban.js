@@ -184,13 +184,18 @@ const salvarTarefasNoXano = () => {
     const userId = localStorage.getItem('userId');
     const tarefas = coletarTarefas();
     const base64SemPrefixo = localStorage.getItem('Foto_base64');
+    const email = localStorage.getItem('userEmail');
+    const nome = localStorage.getItem('userName');
     fetch(`https://x8ki-letl-twmt.n7.xano.io/api:NzSrOVdQ/user/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             userId: userId ,
             Task_Kanban: tarefas,
-            Foto_usuario: base64SemPrefixo, })
+            Foto_usuario: base64SemPrefixo,
+            email : email,
+            name : nome
+        })
     })
     .then(response => response.json())
     .then(() => console.log('Tarefas salvas com sucesso!'))
@@ -219,6 +224,9 @@ document.getElementById('profile-pic').addEventListener('change', (event) => {
 const salvarImagemUsuario = (base64Image) => {
     const userId = localStorage.getItem('userId');
     const tarefas = coletarTarefas();
+    const email = localStorage.getItem('userEmail')
+    const nome = localStorage.getItem('userName')
+    
     if (!userId) {
         console.error('Usuário não autenticado.');
         return;
@@ -233,7 +241,9 @@ const salvarImagemUsuario = (base64Image) => {
         body: JSON.stringify({
                                userId: userId ,
                                Foto_usuario: base64SemPrefixo,
-                               Task_Kanban: tarefas
+                               Task_Kanban: tarefas,
+                               email : email,
+                               name : nome
                               })
     })
     .then(() => console.log('Foto de perfil salva no Xano!'))
